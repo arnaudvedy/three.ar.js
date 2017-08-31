@@ -85,7 +85,7 @@ var canvas;
 var camera;
 var scene;
 var renderer;
-var mug;
+var obj;
 
 var mugobj = './obj/mugblack.obj';
 var mugmtl = './obj/mugblack.mtl';
@@ -146,60 +146,22 @@ function init() {
   vrControls = new THREE.VRControls(camera);
 
 
-  var mug = new THREE.ARUtils.loadBlocksModel(mugobj);
-//   mug.rotation.z = 90 * Math.PI/180;
-//   mug.rotation.x = -90 * Math.PI/180;
-  mug.scale.x = 0.1;
-  mug.scale.y = 0.1;
-  mug.scale.z = 0.1;
-
-  scene.add(mug);
-
-//   var objloader = new THREE.OBJLoader();
-//   var material = new THREE.MeshBasicMaterial({color: 'green'});
-//   objloader.load( './obj/nyc.obj', function (obj) {
-//       obj.traverse(function(child) {
-//           if ( child instanceof THREE.Mesh ) {
-//               child.material = material;
-// 		  }
-
-// 	   });
+  var mtlloader = new THREE.MTLLoader();
+  mtlloader.load(mugmtl, function(materials){
+      materials.preload();
+      var objloader = new THREE.OBJLoader();
+      objloader.setMaterials(materials);
+      objloader.load(mugobj, function(obj){
+        obj.rotation.z = 90 * Math.PI/180;
+        obj.rotation.x = -90 * Math.PI/180;
+        obj.scale.x = 0.1;
+        obj.scale.y = 0.1;
+        obj.scale.z = 0.1;
+      });
+      scene.add(obj);
+  });
 
 
-//         obj.rotation.z = 90 * Math.PI/180;
-//         obj.rotation.x = -90 * Math.PI/180;
-//         obj.scale.x = 0.001;
-//         obj.scale.y = 0.001;
-//         obj.scale.z = 0.001;
-        // obj.scale.set(0.3, 0.3, 0.3);
-        //obj.position.set(10000, 10000, 10000);
-                    //object.rotation.z = 90 * Math.PI/180;
-                    //object.rotation.x = -90 * Math.PI/180;
-                    //object.position.set(10000, 10000, 100000);
-
-        // scene.add(obj);
-		// 		});
-
-
-  // Create the cube geometry and add it to the scene. Set the position
-  // to (Infinity, Infinity, Infinity) so that it won't appear visible
-  // until the first hit is found, and move it there
-  // var geometry = new THREE.BoxGeometry(BOX_SCALE, BOX_SCALE, BOX_SCALE);
-  // var faceIndices = ['a', 'b', 'c'];
-  // for (var i = 0; i < geometry.faces.length; i++) {
-  //   var f  = geometry.faces[i];
-  //   for (var j = 0; j < 3; j++) {
-  //     var vertexIndex = f[faceIndices[ j ]];
-  //     f.vertexColors[j] = colors[vertexIndex];
-  //   }
-  // }
-  // var material = new THREE.MeshBasicMaterial({ vertexColors: THREE.VertexColors });
-  // cube = new THREE.Mesh(geometry, material);
-
-  // // Place the cube very far to initialize
-  // cube.position.set(10000, 10000, 10000);
-
-  // scene.add(cube);
 
   // Bind our event handlers
   window.addEventListener('resize', onWindowResize, false);
@@ -270,7 +232,7 @@ function onClick (e) {
     var hit = hits[0];
     // Use the `placeObjectAtHit` utility to position
     // the cube where the hit occurred
-    THREE.ARUtils.placeObjectAtHit(mug,  // The object to place
+    THREE.ARUtils.placeObjectAtHit(obj,  // The object to place
                                    hit,   // The VRHit object to move the cube to
                                    true, // Whether or not we also apply orientation
                                    1);    // Easing value from 0 to 1; we want to move

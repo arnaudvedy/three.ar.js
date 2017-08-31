@@ -143,7 +143,7 @@ function init() {
   var obj;
   var objloader = new THREE.OBJLoader();
   var material = new THREE.MeshBasicMaterial({color: 'green'});
-  objloader.load( './obj/cube.obj', function (obj) {
+  objloader.load( './obj/nyc.obj', function (obj) {
       obj.traverse(function(child) {
           if ( child instanceof THREE.Mesh ) {
               child.material = material;

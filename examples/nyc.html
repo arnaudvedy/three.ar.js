@@ -84,6 +84,7 @@ var canvas;
 var camera;
 var scene;
 var renderer;
+var obj;
 
 
 // var BOX_SCALE = 0.3;
@@ -140,10 +141,6 @@ function init() {
   // real world and virtual world in sync.
   vrControls = new THREE.VRControls(camera);
 
-  var ambient = new THREE.AmbientLight( 0x101030 );
-  scene.add( ambient );
-
-  var obj;
   var objloader = new THREE.OBJLoader();
   var material = new THREE.MeshBasicMaterial({color: 'green'});
   objloader.load( './obj/nyc.obj', function (obj) {

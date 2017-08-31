@@ -145,15 +145,14 @@ function init() {
   vrControls = new THREE.VRControls(camera);
 
   var objloader = new THREE.OBJLoader();
-  var material = new THREE.MeshBasicMaterial({color: 'green'});
+  var material = new THREE.MeshBasicMaterial({color: 'green', wireframe: true, wireframeLinewidth: 2});
   objloader.load( './obj/nyc.obj', function (obj) {
       obj.traverse(function(child) {
           if ( child instanceof THREE.Mesh ) {
               child.material = material;
 		  }
 
-	   });
-
+       });
 
         obj.rotation.z = 90 * Math.PI/180;
         obj.rotation.x = -90 * Math.PI/180;

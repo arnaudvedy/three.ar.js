@@ -146,8 +146,7 @@ function init() {
 
   var objloader = new THREE.OBJLoader();
 //   var material = new THREE.MeshBasicMaterial({color: 'black', wireframe: true, wireframeLinewidth: 1});
-//   var material = new THREE.MeshNormalMaterial();
-  var material = new THREE.MeshDepthMaterial();
+  var material = new THREE.MeshNormalMaterial();
 
   objloader.load( './obj/nyc.obj', function (obj) {
       obj.traverse(function(child) {
@@ -166,8 +165,8 @@ function init() {
         //     new THREE.Matrix4().makeRotationY(THREE.Math.degToRad(-90))
         // );
 
-        // obj.scale.set(0.3, 0.3, 0.3);
-        //obj.position.set(10000, 10000, 10000);
+        //obj.scale.set(0.3, 0.3, 0.3);
+        obj.position.set(10000, 10000, 10000);
                     //object.rotation.z = 90 * Math.PI/180;
                     //object.rotation.x = -90 * Math.PI/180;
                     //object.position.set(10000, 10000, 100000);

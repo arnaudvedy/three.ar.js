@@ -146,14 +146,14 @@ function init() {
   vrControls = new THREE.VRControls(camera);
 
 
-  THREE.ARUtils.loadBlocksModel(mugobj);
+  var mug = new THREE.ARUtils.loadBlocksModel(mugobj);
 //   mug.rotation.z = 90 * Math.PI/180;
 //   mug.rotation.x = -90 * Math.PI/180;
-  model.scale.x = 0.1;
-  model.scale.y = 0.1;
-  model.scale.z = 0.1;
+  mug.scale.x = 0.1;
+  mug.scale.y = 0.1;
+  mug.scale.z = 0.1;
 
-  scene.add(model);
+  scene.add(mug);
 
 //   var objloader = new THREE.OBJLoader();
 //   var material = new THREE.MeshBasicMaterial({color: 'green'});
@@ -270,7 +270,7 @@ function onClick (e) {
     var hit = hits[0];
     // Use the `placeObjectAtHit` utility to position
     // the cube where the hit occurred
-    THREE.ARUtils.placeObjectAtHit(model,  // The object to place
+    THREE.ARUtils.placeObjectAtHit(mug,  // The object to place
                                    hit,   // The VRHit object to move the cube to
                                    true, // Whether or not we also apply orientation
                                    1);    // Easing value from 0 to 1; we want to move

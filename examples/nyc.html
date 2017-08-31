@@ -146,7 +146,8 @@ function init() {
 
   var objloader = new THREE.OBJLoader();
 //   var material = new THREE.MeshBasicMaterial({color: 'black', wireframe: true, wireframeLinewidth: 1});
-  var material = new THREE.MeshNormalMaterial();
+//   var material = new THREE.MeshNormalMaterial();
+  var material = new THREE.MeshDepthMaterial();
 
   objloader.load( './obj/nyc.obj', function (obj) {
       obj.traverse(function(child) {

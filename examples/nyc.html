@@ -84,7 +84,6 @@ var canvas;
 var camera;
 var scene;
 var renderer;
-var cube;
 var object;
 
 var colors = [
@@ -153,20 +152,19 @@ function init() {
   vrControls = new THREE.VRControls(camera);
 
   var loader = new THREE.OBJLoader();
-  loader.load( 'obj/nyc.obj', function ( object ) {
 
-					object.traverse( function ( child ) {
 
-						if ( child instanceof THREE.Mesh ) {
+  loader.addEventListener( 'load', function ( event ){
+    var object = event.content;
+    object.traverse( function ( child ){
+      if (child instanceof THREE.Mesh){
+        child.material.color.setHex(0x5DB959);
+      }
+    });
+    scene.add( object );
+	});
 
-							child.material.color.setHex(0x5DB959);
-						}
-
-					} );
-
-					scene.add( object );
-
-				}, onProgress, onError );
+  loader.load( 'obj/nyc.obj');
 
   // Create the cube geometry and add it to the scene. Set the position
   // to (Infinity, Infinity, Infinity) so that it won't appear visible

@@ -136,6 +136,9 @@ function init() {
     vrDisplay.depthFar
   );
 
+  var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+  scene.add(ambientLight);
+
   // VRControls is a utility from three.js that applies the device's
   // orientation/position to the perspective camera, keeping our
   // real world and virtual world in sync.

@@ -157,10 +157,12 @@ function init() {
     //         new THREE.Matrix4().makeRotationY(THREE.Math.degToRad(-90))
     //    );
 
+    obj.rotation.z = 90 * Math.PI/180;
+    obj.rotation.x = -90 * Math.PI/180;
        nyc = obj
 
-        nyc.rotation.z = 90 * Math.PI/180;
-        //nyc.rotation.x = -90 * Math.PI/180;
+        // nyc.rotation.z = 90 * Math.PI/180;
+        // nyc.rotation.x = -90 * Math.PI/180;
 
         nyc.scale.x = 0.005;
         nyc.scale.y = 0.005;
@@ -170,7 +172,7 @@ function init() {
         // );
 
         //obj.scale.set(0.3, 0.3, 0.3);
-        nyc.position.set(10000, 10000, 10000);
+        //nyc.position.set(10000, 10000, 10000);
                     //object.rotation.z = 90 * Math.PI/180;
                     //object.rotation.x = -90 * Math.PI/180;
                     //object.position.set(10000, 10000, 100000);

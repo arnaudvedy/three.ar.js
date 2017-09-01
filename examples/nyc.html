@@ -157,8 +157,8 @@ function init() {
     //         new THREE.Matrix4().makeRotationY(THREE.Math.degToRad(-90))
     //    );
 
-    obj.rotation.z = 90 * Math.PI/180;
-    obj.rotation.x = -90 * Math.PI/180;
+    //obj.rotation.z = 90 * Math.PI/180;
+    //obj.rotation.x = -90 * Math.PI/180;
        nyc = obj
 
         // nyc.rotation.z = 90 * Math.PI/180;
@@ -276,7 +276,7 @@ function onClick (e) {
     THREE.ARUtils.placeObjectAtHit(nyc,  // The object to place
                                    hit,   // The VRHit object to move the cube to
                                    true, // Whether or not we also apply orientation
-                                   0.2);    // Easing value from 0 to 1; we want to move
+                                   1);    // Easing value from 0 to 1; we want to move
                                           // the cube directly to the hit position
   }
 }

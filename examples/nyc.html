@@ -84,7 +84,7 @@ var canvas;
 var camera;
 var scene;
 var renderer;
-var obj;
+var nyc;
 
 
 // var BOX_SCALE = 0.3;
@@ -136,9 +136,6 @@ function init() {
     vrDisplay.depthFar
   );
 
-  var ambientLight = new THREE.AmbientLight(0x0c0c0c);
-  scene.add(ambientLight);
-
   // VRControls is a utility from three.js that applies the device's
   // orientation/position to the perspective camera, keeping our
   // real world and virtual world in sync.
@@ -156,22 +153,24 @@ function init() {
 
        });
 
-        obj.rotation.z = 90 * Math.PI/180;
-        obj.rotation.x = -90 * Math.PI/180;
-        obj.scale.x = 0.001;
-        obj.scale.y = 0.001;
-        obj.scale.z = 0.001;
+       nyc = obj
+
+        nyc.rotation.z = 90 * Math.PI/180;
+        nyc.rotation.x = -90 * Math.PI/180;
+        nyc.scale.x = 0.001;
+        nyc.scale.y = 0.001;
+        nyc.scale.z = 0.001;
         // obj.geometry.applyMatrix(
         //     new THREE.Matrix4().makeRotationY(THREE.Math.degToRad(-90))
         // );
 
         //obj.scale.set(0.3, 0.3, 0.3);
-        obj.position.set(10000, 10000, 10000);
+        // obj.position.set(10000, 10000, 10000);
                     //object.rotation.z = 90 * Math.PI/180;
                     //object.rotation.x = -90 * Math.PI/180;
                     //object.position.set(10000, 10000, 100000);
 
-        scene.add(obj);
+        scene.add(nyc);
 				});
 
 
@@ -264,7 +263,7 @@ function onClick (e) {
     var hit = hits[0];
     // Use the `placeObjectAtHit` utility to position
     // the cube where the hit occurred
-    THREE.ARUtils.placeObjectAtHit(obj,  // The object to place
+    THREE.ARUtils.placeObjectAtHit(nyc,  // The object to place
                                    hit,   // The VRHit object to move the cube to
                                    true, // Whether or not we also apply orientation
                                    1);    // Easing value from 0 to 1; we want to move

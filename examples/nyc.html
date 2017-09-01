@@ -155,8 +155,8 @@ function init() {
 
        nyc = obj
 
-        // nyc.rotation.z = 90 * Math.PI/180;
-        // nyc.rotation.x = -90 * Math.PI/180;
+        nyc.rotation.z = 90 * Math.PI/180;
+        nyc.rotation.x = -90 * Math.PI/180;
         nyc.scale.x = 0.001;
         nyc.scale.y = 0.001;
         nyc.scale.z = 0.001;
@@ -252,6 +252,9 @@ function onClick (e) {
   // (between 0 and 1) for the screen position.
   var x = e.touches[0].pageX / window.innerWidth;
   var y = e.touches[0].pageY / window.innerHeight;
+
+  nyc.rotation.z = 90 * Math.PI/180;
+  nyc.rotation.x = -90 * Math.PI/180;
 
   // Send a ray from the point of click to the real world surface
   // and attempt to find a hit. `hitTest` returns an array of potential

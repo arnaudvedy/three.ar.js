@@ -145,7 +145,7 @@ function init() {
 //   var material = new THREE.MeshBasicMaterial({color: 'black', wireframe: true, wireframeLinewidth: 1});
   var material = new THREE.MeshNormalMaterial();
 
-  objloader.load( './obj/nyc.obj', function (obj) {
+  objloader.load( './obj/nyc1.obj', function (obj) {
       obj.traverse(function(child) {
           if ( child instanceof THREE.Mesh ) {
               child.material = material;

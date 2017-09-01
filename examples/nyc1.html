@@ -84,7 +84,7 @@ var canvas;
 var camera;
 var scene;
 var renderer;
-var obj;
+var nyc;
 
 
 // var BOX_SCALE = 0.3;
@@ -148,8 +148,8 @@ function init() {
 
   objloader.load('./obj/nyc.obj', function(obj){
     var material = new THREE.MeshNormalMaterial();
-    var geometry = new THREE.Geometry().fromBufferGeometry( obj );
-    var nyc = new THREE.Mesh(geometry, material)
+    //var geometry = new THREE.Geometry().fromBufferGeometry( obj );
+    nyc = new THREE.Mesh(obj, material)
 
     nyc.rotation.z = 90 * Math.PI/180;
     nyc.rotation.x = -90 * Math.PI/180;

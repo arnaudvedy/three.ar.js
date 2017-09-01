@@ -146,10 +146,9 @@ function init() {
 
   var objloader = new THREE.OBJLoader();
 
-  objloader.addEventListener('load', function(event){
+  objloader.load('./obj/nyc.obj', function(obj){
     var material = new THREE.MeshNormalMaterial();
-    var bufferGeometry = event.content;
-    var geometry = new THREE.Geometry().fromBufferGeometry( bufferGeometry );
+    var geometry = new THREE.Geometry().fromBufferGeometry( obj );
     var nyc = new THREE.Mesh(geometry, material)
 
     nyc.rotation.z = 90 * Math.PI/180;
@@ -161,8 +160,6 @@ function init() {
     scene.add(nyc);
 
   });
-
-  objloader.load('./obj/nyc.obj');
 
 
   // Bind our event handlers

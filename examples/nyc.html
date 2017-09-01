@@ -153,14 +153,14 @@ function init() {
 
        });
 
-       obj.geometry.applyMatrix(
-            new THREE.Matrix4().makeRotationY(THREE.Math.degToRad(-90))
-       );
+    //    obj.geometry.applyMatrix(
+    //         new THREE.Matrix4().makeRotationY(THREE.Math.degToRad(-90))
+    //    );
 
        nyc = obj
 
         // nyc.rotation.z = 90 * Math.PI/180;
-        // nyc.rotation.x = -90 * Math.PI/180;
+        nyc.rotation.x = -90 * Math.PI/180;
 
         nyc.scale.x = 0.005;
         nyc.scale.y = 0.005;
